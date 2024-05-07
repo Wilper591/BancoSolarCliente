@@ -1,4 +1,4 @@
-const URL_SERVER = "https://bancosolar.onrender.com";
+const URL_SERVER = "https://bancosolar.onrender.com/apiV1";
 const URL_BASE = "https://wilper591.github.io/BancoSolarCliente/";
 const inputUser = document.querySelector("#user");
 const inputPassword = document.querySelector("#password");
@@ -13,7 +13,7 @@ btnLogin.addEventListener("click", (e) => {
 const login = async () => {
   try {
     const data = await axios.get(
-      `${URL_SERVER}/apiV1/login/?user=${inputUser.value}&password=${inputPassword.value}`
+      `${URL_SERVER}/login/?user=${inputUser.value}&password=${inputPassword.value}`
     );
     const DBuser = data.data.result.map((data) => data.email);
     const DBpass = data.data.result.map((data) => data.password);

@@ -1,4 +1,4 @@
-const URL_SERVER = "https://bancosolar.onrender.com";
+const URL_SERVER = "https://bancosolar.onrender.com/apiV1";
 const URL_BASE = "https://wilper591.github.io/BancoSolarCliente/";
 let errorMsj = document.querySelector("#errorMsj");
 let errorModal = document.querySelector("#errorModal");
