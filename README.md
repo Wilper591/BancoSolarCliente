@@ -1,2 +1,4 @@
 # BancoSolarCliente
-Vista Cliente de la app BancoSolar. Servidor: https://github.com/Wilper591/BancoSolarServer
+Vista Cliente de la app BancoSolar. 
+# Servidor: 
+<a href="https://github.com/Wilper591/BancoSolarServer">Server</a>
