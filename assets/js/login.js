@@ -1,4 +1,5 @@
-const URL_MAIN = "https://bancosolar.onrender.com";
+const URL_SERVER = "https://bancosolar.onrender.com";
+const URL_BASE = "https://wilper591.github.io/BancoSolarCliente/";
 const inputUser = document.querySelector("#user");
 const inputPassword = document.querySelector("#password");
 const btnLogin = document.querySelector("#ingresar");
@@ -12,16 +13,16 @@ btnLogin.addEventListener("click", (e) => {
 const login = async () => {
   try {
     const data = await axios.get(
-      `${URL_MAIN}/apiV1/login/admin/?user=${inputUser.value}&password=${inputPassword.value}`
+      `${URL_SERVER}/apiV1/login/?user=${inputUser.value}&password=${inputPassword.value}`
     );
     const DBuser = data.data.result.map((data) => data.email);
     const DBpass = data.data.result.map((data) => data.password);
 
     if (inputUser.value === String(DBuser) && inputPassword.value === String(DBpass)) {
-      window.location.replace(`${URL_MAIN}/apiV1/dashboard`);
+      window.location.replace(`${URL_BASE}/admin.html`);
     } else {
       alert("Usuario o contraseña incorrectos");
-      window.location.replace(`${URL_MAIN}`);
+      window.location.replace(`${URL_BASE}`);
     }
   } catch (error) {
     errorMess.innerHTML = `<p class="bg-danger text-white p-1">Usuario o contraseña Incorrectos</p>`;

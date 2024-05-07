@@ -1,5 +1,5 @@
-const URL_MAIN = "https://bancosolar.onrender.com";
-const URL_BASE = "https://bancosolar.onrender.com/apiV1/dashboard";
+const URL_SERVER = "https://bancosolar.onrender.com";
+const URL_BASE = "https://wilper591.github.io/BancoSolarCliente/";
 let errorMsj = document.querySelector("#errorMsj");
 let errorModal = document.querySelector("#errorModal");
 let successMsj = document.querySelector("#successMsj");
@@ -59,7 +59,7 @@ const editUsuario = async (id) => {
     return;
   }
   try {
-    const { data } = await axios.put(`${URL_BASE}/users/usuario/?id=${id}`, {
+    const { data } = await axios.put(`${URL_SERVER}/usuarios/?id=${id}`, {
       nombre,
       balance,
     });
@@ -128,7 +128,7 @@ $("form:first").submit(async (e) => {
     return false;
   }
   try {
-    const response = await fetch(`${URL_BASE}/users/usuario`, {
+    const response = await fetch(`${URL_SERVER}/usuarios`, {
       method: "post",
       body: JSON.stringify({
         nombre,
@@ -196,7 +196,7 @@ $("form:last").submit(async (e) => {
     return false;
   }
   try {
-    const response = await fetch(`${URL_BASE}/transaction/transferencia`, {
+    const response = await fetch(`${URL_SERVER}/transaction`, {
       method: "post",
       body: JSON.stringify({
         emisor,
@@ -230,7 +230,7 @@ $("form:last").submit(async (e) => {
 
 const getUsuarios = async () => {
   try {
-    const response = await fetch(`${URL_BASE}/users/usuarios`);
+    const response = await fetch(`${URL_SERVER}/usuarios`);
     let data = await response.json();
     $(".usuarios").html("");
     data.listado.forEach((c) => {
@@ -267,7 +267,7 @@ const getUsuarios = async () => {
 };
 
 const eliminarUsuario = async (id) => {
-  const response = await axios.delete(`${URL_BASE}/users/usuario?id=${id}`);
+  const response = await axios.delete(`${URL_SERVER}/usuarios?id=${id}`);
   if (response.data.erase) {
     successMsj.innerHTML = `<p>${response.data.message}</p>`;
     getUsuarios();
@@ -286,7 +286,7 @@ const eliminarUsuario = async (id) => {
 
 const getTransferencias = async () => {
   try {
-    const { data } = await axios.get(`${URL_BASE}/transaction/transferencias`);
+    const { data } = await axios.get(`${URL_SERVER}/transaction`);
     $(".transferencias").html("");
     data.listado.forEach((t) => {
       $(".transferencias").append(`
@@ -327,7 +327,7 @@ const limpiarMsj = (tagHtml) => {
 
 const logout = () => {
   try {
-    window.location.replace(`${URL_MAIN}`);
+    window.location.replace(`${URL_BASE}`);
   } catch (error) {
     console.log("Error en Login: " + error);
   }
