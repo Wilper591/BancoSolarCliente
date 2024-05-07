@@ -1,0 +1,23 @@
+body {
+  background-color: #e5e1dd;
+}
+h1 {
+  margin: 1rem;
+  font-size: 5rem;
+}
+h2 {
+  margin: 2rem;
+  font-size: 3rem;
+}
+h3 {
+  margin: 3rem;
+}
+h4 {
+  margin: 2rem;
+}
+a {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: black;
+}
